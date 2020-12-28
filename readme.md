@@ -1,8 +1,10 @@
-# Google Maps Polyliine
+# Google Maps Polyline
+
+## Maaike PINK TURKIES II 
 
 https://snazzymaps.com
 
-Maaike PINK TURKIES II 
+## Next
 
 - Get three points for the polyline
 
