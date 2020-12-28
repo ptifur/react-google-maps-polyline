@@ -12,3 +12,16 @@
     flex-direction: column;
     background: #eeeeee;
 }
+
+button {
+    background: #11ff99;
+    border: none;
+    padding: 10px 25px;
+    font-size: 1.05em;
+    color: #ffffff;
+    margin-top: 3vh;
+}
+
+button:hover {
+    background: #1ae88f;
+}

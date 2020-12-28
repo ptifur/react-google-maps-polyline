@@ -1,11 +1,19 @@
 # Google Maps Polyline
 
+https://react-google-maps-api-docs.netlify.app/#polyline
+
 ## Maaike PINK TURKIES II 
 
 https://snazzymaps.com
 
-## Next
+## Trail
 
-- Get three points for the polyline
+- Get trail points for the polyline
 
-- Draw the polyline
+- Load track from geojson file
+
+## What else
+
+panTo
+
+position map within region
