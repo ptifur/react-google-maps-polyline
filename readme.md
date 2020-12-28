@@ -1,4 +1,6 @@
-# Google Maps Polyline
+# Google Maps Polyline 
+
+Main branch. Pink / green
 
 https://react-google-maps-api-docs.netlify.app/#polyline
 
@@ -14,6 +16,8 @@ https://snazzymaps.com
 
 ## What else
 
-panTo
+panTo()
 
 position map within region
+
+display info about the track
