@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { GoogleMap, Polyline, LoadScript, InfoBox, InfoWindow, Marker } from '@react-google-maps/api'
-import mapStyle from './mapStylePropia'
+import mapStyle from './mapStyle'
 import { features } from '../data/ultra.json'
 import { features as media } from '../data/media.json'
 
@@ -68,22 +68,22 @@ const Main = () => {
     // const [pointsMedia, setPointsMedia] = useState([])
 
     // fetch fom remote file
-    const getTrackPoints = (url) => {
-        fetch(url)
-            .then(response => (
-                console.log('fetched from remote file')
-            ))
-            .then(
-                // parse 
-            )
-            // how to catch errors?
-    }
+    // const getTrackPoints = (url) => {
+    //     fetch(url)
+    //         .then(response => (
+    //             console.log('fetched from remote file')
+    //         ))
+    //         .then(
+    //             // parse 
+    //         )
+    //         // how to catch errors?
+    // }
 
-    useEffect(() => {
-        const data = getTrackPoints(urlMedia)
-        setPointsMedia(data)
-        console.log('updated state for media from remote file')
-    }, [])
+    // useEffect(() => {
+    //     const data = getTrackPoints(urlMedia)
+    //     setPointsMedia(data)
+    //     console.log('updated state for media from remote file')
+    // }, [])
 
     // display polyline
     const [visibleUltra, setVisibleUltra] = useState(false)
