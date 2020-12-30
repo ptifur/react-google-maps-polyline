@@ -20,8 +20,8 @@ map() instead of for()
 
 - header nav redo!
 
-- Clean up other branch
-
 ## Then
 
 Fetch data from github
+
+Check Loader tutorial
