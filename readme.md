@@ -14,21 +14,17 @@ https://react-google-maps-api-docs.netlify.app/#polyline
 
 ## Next
 
-1. Marker icon FIX
+- Info box, not Window
 
-`TypeError: can't access property "maps", window.google is undefined`
-
-2. Info text, not Window
+- map() instead of for()
 
 With fixed position to the side
 
-## Fix
+- panTo to the bounds of the trail after click
 
-map() instead of for()
+## Marker icon FIX
 
-- header nav redo!
-
-Try this for nav ☰
+`TypeError: can't access property "maps", window.google is undefined`
 
 ## Then
 
@@ -38,8 +34,8 @@ Check Loader tutorial
 
 ## Router
 
-Set up router
+Set up React Router
 
 Another page
 
-Get images from official site
+Get images track profile from official site
