@@ -8,10 +8,20 @@ https://react-google-maps-api-docs.netlify.app/#polyline
 
 1. Marker icon FIX
 
-2. Info position over the track
+Check Leigh example
+
+2. Info text, not Window
+
+With fixed position to the side
 
 ## Fix
 
 map() instead of for()
 
-header nav
+- header nav redo!
+
+- Clean up other branch
+
+## Then
+
+Fetch data from github

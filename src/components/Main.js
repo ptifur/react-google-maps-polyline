@@ -1,13 +1,12 @@
 import { useState } from 'react'
 import { GoogleMap, Polyline, LoadScript, InfoBox, InfoWindow, Marker } from '@react-google-maps/api'
-// import mapStyle from './mapStyle'
 import mapStyle from './mapStylePropia'
 import { features } from '../data/ultra.json'
 import { features as media } from '../data/media.json'
 
 const containerStyle = {
     width: '100%',
-    height: '85vh'
+    height: '100%'
 }
 
 const center = {
@@ -19,7 +18,7 @@ const optionsMap = {
     styles: mapStyle,
     disableDefaultUI: true,
     zoomControl: true,
-    mapTypeId: "terrain"
+    mapTypeId: "terrain",
     // mapTypeId: "satellite"
 }
 
@@ -141,68 +140,70 @@ const Main = () => {
                 <a href="https://github.com/ptifur/react-google-maps-polyline">source code</a>
             </div>
         </div>
-        <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
-            <GoogleMap 
-                mapContainerStyle={containerStyle} 
-                center={center} 
-                zoom={11}
-                options={optionsMap}
-            >
-                <Polyline
-                    path={pointsUltra}
-                    options={optionsLineUltra}
-                    visible={visibleUltra}
-                    onClick={(e) => displayTrailInfo(e)}
-                />
-
-                <Polyline
-                    path={pointsMedia}
-                    options={optionsLineMedia}
-                    visible={visibleMedia}
-                    onClick={() => setDisplayWindow(!displayWindow)}
-                />
-                            
-                {/* <InfoBox
-                    options={optionsInfoBox}
-                    position={center}
+        <div className="container">
+            <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
+                <GoogleMap 
+                    mapContainerStyle={containerStyle} 
+                    center={center} 
+                    zoom={11}
+                    options={optionsMap}
                 >
-                    <div style={infoBoxStyle}>
-                    <div style={infoBoxStyleDiv}>
-                        Click the trail
+                    <Polyline
+                        path={pointsUltra}
+                        options={optionsLineUltra}
+                        visible={visibleUltra}
+                        onClick={(e) => displayTrailInfo(e)}
+                    />
+
+                    <Polyline
+                        path={pointsMedia}
+                        options={optionsLineMedia}
+                        visible={visibleMedia}
+                        onClick={() => setDisplayWindow(!displayWindow)}
+                    />
+                                
+                    {/* <InfoBox
+                        options={optionsInfoBox}
+                        position={center}
+                    >
+                        <div style={infoBoxStyle}>
+                        <div style={infoBoxStyleDiv}>
+                            Click the trail
+                        </div>
                     </div>
-                </div>
-                </InfoBox> */}
+                    </InfoBox> */}
 
-                <Marker
-                    position={positionStartUltra}
-                    visible={visibleUltra}
-                    // icon={{
-                    //     url: '/bear.svg',
-                    //     scaledSize: new window.google.maps.Size(30, 30),
-                    //     // origin: new window.google.maps.Point(0, 0),
-                    //     // anchor: new window.google.maps.Point(15, 15)
-                    // }}
-                ></Marker>
+                    <Marker
+                        position={positionStartUltra}
+                        visible={visibleUltra}
+                        // icon={{
+                        //     url: '/bear.svg',
+                        //     scaledSize: new window.google.maps.Size(30, 30),
+                        //     // origin: new window.google.maps.Point(0, 0),
+                        //     // anchor: new window.google.maps.Point(15, 15)
+                        // }}
+                    ></Marker>
 
-                <Marker
-                    position={positionStartMedia}
-                    visible={visibleMedia}
-                />
+                    <Marker
+                        position={positionStartMedia}
+                        visible={visibleMedia}
+                    />
 
-                {displayWindow ?
-                <InfoWindow
-                    position={position}
-                    open={false}
-                >
-                    <div style={infoWindowStyle}>
-                        <h1>Media</h1>
-                        <p>21 km</p>
-                    </div>
-                </InfoWindow>
-                : null}
+                    {displayWindow ?
+                    <InfoWindow
+                        position={position}
+                        open={false}
+                    >
+                        <div style={infoWindowStyle}>
+                            <h1>Media</h1>
+                            <p>21 km</p>
+                        </div>
+                    </InfoWindow>
+                    : null}
 
-            </GoogleMap>
-        </LoadScript>
+                </GoogleMap>
+            </LoadScript>
+        </div>
         <div className="buttons">
             <button className="one" onClick={() => togglePathVisibilityUltra()}>Ultra</button>
             <button className="two" onClick={() => togglePathVisibilityMedia()}>Media</button>

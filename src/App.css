@@ -11,7 +11,11 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-    background: #eeeeee;
+}
+
+.container {
+    width: 100%;
+    height: 85%;
 }
 
 .header {
@@ -20,12 +24,29 @@
     display: flex;
     align-items: center;
     position: fixed;
+    top: 3vh;
     justify-content: space-between;
-    z-index: 2;
+    z-index: 1;
+    border-radius: 10px;
+    padding: 10px 35px;
+}
+
+.header::after {
+    content: "";
+    background: #ffffff;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 80px;
+    border-radius: 10px;
+    opacity: .35;
+    z-index: -1;
 }
 
 h1 {
-    font-size:1.9em;
+    font-size:1.6em;
 }
 
 button {
@@ -60,4 +81,25 @@ button {
 
 .three:hover {
     background: #524494;
+}
+
+@media all and (max-width: 680px) {
+
+    .header {
+        width: 90%;
+    }
+
+    .header,
+    .header::after {
+        height: 60px;
+    }
+
+    h1 {
+        font-size: 1.35em;
+    }
+
+    .container {
+        height: 87%;
+    }
+
 }
