@@ -10,7 +10,11 @@ This is my practice project
 
 - React Router for navigation
 
+React library
+
 https://react-google-maps-api-docs.netlify.app/#polyline
+
+Link to TRF website
 
 ## Next
 
@@ -23,6 +27,14 @@ Trail visibility
 Just add text to Info display
 
 Perhaps before element for each trail
+
+3. UI White shadow for nav
+
+Trail not clickable
+
+- Change page title
+
+- Set max / min zoom
 
 ## Fix
 
