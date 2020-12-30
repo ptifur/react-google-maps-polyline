@@ -14,28 +14,30 @@ https://react-google-maps-api-docs.netlify.app/#polyline
 
 ## Next
 
-- Info box, not Window
+1. Fetch() file
 
-- map() instead of for()
+2. Use Object to clean up the code
 
-With fixed position to the side
+Trail visibility
 
-- panTo to the bounds of the trail after click
+Just add text to Info display
 
-## Marker icon FIX
+Perhaps before element for each trail
+
+## Fix
+
+map() instead of for()
+
+Check Marker Icons
 
 `TypeError: can't access property "maps", window.google is undefined`
 
-## Then
-
-Fetch data from github
-
-Check Loader tutorial
-
-## Router
+## React Router
 
 Set up React Router
 
 Another page
 
 Get images track profile from official site
+
+Image from public or source?

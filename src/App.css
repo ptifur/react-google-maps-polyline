@@ -35,7 +35,7 @@
 .header::after {
     content: "";
     background: #ffffff;
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    box-shadow: 0 8px 32px 0 #282f3f77;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -50,19 +50,24 @@ h1 {
     font-size:1.6em;
 }
 
+h2 {
+    color: #313345;
+    margin-bottom: 5px;
+}
+
 .nav a {
     margin-left: 25px;
     text-decoration: none;
-    color: #52516d;
+    color: #313345;
 }
 
 .nav a:hover {
-    color: #72719a;
+    color: #45485c;
 }
 
 .nav-mobile a {
     text-decoration: none;
-    color: #52516d;
+    color: #313345;
     font-size: 1.8em;
 }
 
@@ -99,14 +104,6 @@ button {
 
 .two:hover {
     background: #c362ff;
-}
-
-.three {
-    background: #453c72;
-}
-
-.three:hover {
-    background: #524494;
 }
 
 @media all and (max-width: 1020px) {

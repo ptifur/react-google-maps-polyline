@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { GoogleMap, Polyline, LoadScript, InfoBox, InfoWindow, Marker } from '@react-google-maps/api'
+import { useEffect, useState, useRef, useCallback } from 'react'
+import { GoogleMap, Polyline, LoadScript, InfoBox, Marker, useGoogleMap } from '@react-google-maps/api'
 import mapStyle from './mapStyle'
 import { features } from '../data/ultra.json'
 import { features as media } from '../data/media.json'
@@ -51,18 +51,42 @@ const infoBoxStyle = {
         padding: 12 
     }
 
-const infoBoxStyleDiv = { 
-        fontSize: 16, 
-        fontColor: `#08233B` 
+const Main = () => {
+
+    const selectedObjectSchema = {
+        trail: "Ultra",
+        distance: 177,
+        center: {
+            lat: 26,
+            lng: -16
+        }
     }
 
-// I N F O W I N D O W
-const infoWindowStyle = {
-  background: `white`,
-  padding: 15
-}
+    const mapRef = useRef()
 
-const Main = () => {
+    const onMapLoad = useCallback((map) => {
+        mapRef.current = map
+    }, [])
+
+    const [selectedTrail, setSelectedTrail] = useState('')
+
+    const displayTrail = (trailName) => {
+
+        if (trailName === 'Media') {
+            mapRef.current.panTo(positionStartMedia)
+            // simplify this
+            togglePathVisibilityMedia()        
+        }
+
+        if (trailName === 'Ultra') {
+            mapRef.current.panTo(center)
+            togglePathVisibilityUltra()        
+        }
+
+        // fix this
+        setDisplayInfo(!displayInfo)
+        setSelectedTrail(trailName)
+    }
 
     // fetched track Media
     // const [pointsMedia, setPointsMedia] = useState([])
@@ -76,7 +100,6 @@ const Main = () => {
     //         .then(
     //             // parse 
     //         )
-    //         // how to catch errors?
     // }
 
     // useEffect(() => {
@@ -89,7 +112,7 @@ const Main = () => {
     const [visibleUltra, setVisibleUltra] = useState(false)
     const [visibleMedia, setVisibleMedia] = useState(false)
 
-    const [displayWindow, setDisplayWindow] = useState(false)
+    const [displayInfo, setDisplayInfo] = useState(false)
 
     const togglePathVisibilityUltra = () => {
 
@@ -133,9 +156,9 @@ const Main = () => {
         lng: media[0].geometry.coordinates[0]
     }
 
-    const position = {
-        lat: media[media.length / 2].geometry.coordinates[1],
-        lng: media[media.length / 2].geometry.coordinates[0]
+    const positionInfo = {
+        lat: 28.28,
+        lng: -16.56
     }
 
     // media
@@ -149,10 +172,6 @@ const Main = () => {
             lng: pointLng
         }
         pointsMedia.push(pointLatLng)
-    }
-
-    const displayTrailInfo = e => {
-        console.log(e.domEvent)
     }
 
     return (
@@ -175,31 +194,33 @@ const Main = () => {
                     center={center} 
                     zoom={11}
                     options={optionsMap}
+                    onLoad={onMapLoad}
                 >
                     <Polyline
                         path={pointsUltra}
                         options={optionsLineUltra}
                         visible={visibleUltra}
-                        onClick={(e) => displayTrailInfo(e)}
                     />
 
                     <Polyline
                         path={pointsMedia}
                         options={optionsLineMedia}
                         visible={visibleMedia}
-                        onClick={() => setDisplayWindow(!displayWindow)}
                     />
-                                
-                    {/* <InfoBox
-                        options={optionsInfoBox}
-                        position={center}
-                    >
-                        <div style={infoBoxStyle}>
-                        <div style={infoBoxStyleDiv}>
-                            Click the trail
-                        </div>
-                    </div>
-                    </InfoBox> */}
+
+                    {displayInfo ?
+                        <InfoBox
+                            options={optionsInfoBox}
+                            position={positionInfo}
+                        >
+                            <div style={infoBoxStyle}>
+                                <h2>
+                                    {selectedTrail} trail
+                                </h2>
+                                20 km
+                            </div>
+                        </InfoBox>
+                    : null}
 
                     <Marker
                         position={positionStartUltra}
@@ -217,25 +238,12 @@ const Main = () => {
                         visible={visibleMedia}
                     />
 
-                    {displayWindow ?
-                    <InfoWindow
-                        position={position}
-                        open={false}
-                    >
-                        <div style={infoWindowStyle}>
-                            <h1>Media</h1>
-                            <p>21 km</p>
-                        </div>
-                    </InfoWindow>
-                    : null}
-
                 </GoogleMap>
             </LoadScript>
         </div>
         <div className="buttons">
-            <button className="one" onClick={() => togglePathVisibilityUltra()}>Ultra</button>
-            <button className="two" onClick={() => togglePathVisibilityMedia()}>Media</button>
-            {/* <button className="three" onClick={() => setDisplayWindow(!displayWindow)}>Open</button> */}
+            <button className="one" onClick={() => displayTrail('Ultra')}>Ultra</button>
+            <button className="two" onClick={() => displayTrail('Media')}>Media</button>
         </div>
         </>
     )
