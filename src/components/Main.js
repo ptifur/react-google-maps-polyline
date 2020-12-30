@@ -65,7 +65,7 @@ const infoWindowStyle = {
 const Main = () => {
 
     // fetched track Media
-    const [pointsMedia, setPointsMedia] = useState([])
+    // const [pointsMedia, setPointsMedia] = useState([])
 
     // fetch fom remote file
     const getTrackPoints = (url) => {
@@ -84,8 +84,6 @@ const Main = () => {
         setPointsMedia(data)
         console.log('updated state for media from remote file')
     }, [])
-
-    // update state with data
 
     // display polyline
     const [visibleUltra, setVisibleUltra] = useState(false)
