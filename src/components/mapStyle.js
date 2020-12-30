@@ -1,4 +1,4 @@
-export default [
+const mapStyle = [
     {
         "featureType": "landscape",
         "stylers": [
@@ -152,3 +152,5 @@ export default [
         ]
     }
 ]
+
+export default mapStyle

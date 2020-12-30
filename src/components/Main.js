@@ -1,19 +1,18 @@
-import { useEffect, useState, useRef, useCallback } from 'react'
-import { GoogleMap, Polyline, LoadScript, InfoBox, Marker, useGoogleMap } from '@react-google-maps/api'
+import { useState, useRef, useCallback } from 'react'
+import { GoogleMap, Polyline, LoadScript, InfoBox, Marker } from '@react-google-maps/api'
 import mapStyle from './mapStyle'
+import trailInfo from './trailInfo'
+
 import { features } from '../data/ultra.json'
 import { features as media } from '../data/media.json'
 
-const urlMedia = "https://github.com/ptifur/react-google-maps-polyline/blob/main/src/data/media.json"
+// const urlMedia = "https://github.com/ptifur/react-google-maps-polyline/blob/main/src/data/media.json"
+
+// console.log(trailInfo[1].position)
 
 const containerStyle = {
     width: '100%',
     height: '100%'
-}
-
-const center = {
-    lat: 28.26,
-    lng: -16.60
 }
 
 const optionsMap = {
@@ -53,21 +52,14 @@ const infoBoxStyle = {
 
 const Main = () => {
 
-    const selectedObjectSchema = {
-        trail: "Ultra",
-        distance: 177,
-        center: {
-            lat: 26,
-            lng: -16
-        }
-    }
-
+    // panTo
     const mapRef = useRef()
 
     const onMapLoad = useCallback((map) => {
         mapRef.current = map
     }, [])
 
+    // select the trail to output info
     const [selectedTrail, setSelectedTrail] = useState('')
 
     const displayTrail = (trailName) => {
@@ -79,7 +71,7 @@ const Main = () => {
         }
 
         if (trailName === 'Ultra') {
-            mapRef.current.panTo(center)
+            mapRef.current.panTo(trailInfo[0].position)
             togglePathVisibilityUltra()        
         }
 
@@ -88,30 +80,13 @@ const Main = () => {
         setSelectedTrail(trailName)
     }
 
-    // fetched track Media
-    // const [pointsMedia, setPointsMedia] = useState([])
-
-    // fetch fom remote file
-    // const getTrackPoints = (url) => {
-    //     fetch(url)
-    //         .then(response => (
-    //             console.log('fetched from remote file')
-    //         ))
-    //         .then(
-    //             // parse 
-    //         )
-    // }
-
-    // useEffect(() => {
-    //     const data = getTrackPoints(urlMedia)
-    //     setPointsMedia(data)
-    //     console.log('updated state for media from remote file')
-    // }, [])
+    // REWRITE THIS SECTION
 
     // display polyline
     const [visibleUltra, setVisibleUltra] = useState(false)
     const [visibleMedia, setVisibleMedia] = useState(false)
 
+    // display Info
     const [displayInfo, setDisplayInfo] = useState(false)
 
     const togglePathVisibilityUltra = () => {
@@ -145,22 +120,6 @@ const Main = () => {
         pointsUltra.push(pointLatLng)
     }
 
-    // M A R K E R
-    const positionStartUltra = {
-        lat: features[1].geometry.coordinates[1],
-        lng: features[1].geometry.coordinates[0]
-    }
-
-    const positionStartMedia = {
-        lat: media[0].geometry.coordinates[1],
-        lng: media[0].geometry.coordinates[0]
-    }
-
-    const positionInfo = {
-        lat: 28.28,
-        lng: -16.56
-    }
-
     // media
     let pointsMedia = []
 
@@ -174,24 +133,24 @@ const Main = () => {
         pointsMedia.push(pointLatLng)
     }
 
+    // marker position
+    const positionStartUltra = {
+        lat: features[1].geometry.coordinates[1],
+        lng: features[1].geometry.coordinates[0]
+    }
+
+    const positionStartMedia = {
+        lat: media[0].geometry.coordinates[1],
+        lng: media[0].geometry.coordinates[0]
+    }
+
     return (
         <>
-        <div className="header">
-            <h1>Running tracks</h1>
-            <div className="nav">
-                <a href="http://#" target="_blank" rel="noopener noreferrer" className="link">On The Map</a>
-                <a href="http://#" target="_blank" rel="noopener noreferrer" className="link">Description</a>
-                <a href="https://github.com/ptifur/react-google-maps-polyline" target="_blank" rel="noopener noreferrer">source code</a>
-            </div>
-            <div className="nav-mobile">
-                <a href="http://" target="_blank" rel="noopener noreferrer" className="link">☰</a>
-            </div>
-        </div>
         <div className="container">
             <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
                 <GoogleMap 
                     mapContainerStyle={containerStyle} 
-                    center={center} 
+                    center={trailInfo[0].position} 
                     zoom={11}
                     options={optionsMap}
                     onLoad={onMapLoad}
@@ -211,7 +170,7 @@ const Main = () => {
                     {displayInfo ?
                         <InfoBox
                             options={optionsInfoBox}
-                            position={positionInfo}
+                            position={trailInfo[1].position}
                         >
                             <div style={infoBoxStyle}>
                                 <h2>

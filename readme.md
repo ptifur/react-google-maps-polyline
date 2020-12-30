@@ -53,3 +53,35 @@ Another page
 Get images track profile from official site
 
 Image from public or source?
+
+## Split into components
+
+InfoBox with props
+
+Polyline
+
+That's the point! One component, different props
+
+## Here's the plan
+
+- Start with mostly clean file
+
+- fetch json
+
+1. click button  
+
+2. update selectedTrail state
+
+3. if (selected trail) map through to output Info
+
+4. the same with Polyline
+
+Just map from 0 to 1 if (selected trail)
+
+<!-- 
+    <Polyline 
+        point={fetchedTrailPoints[i]} 
+        position={position} (panTo) 
+        style / colour
+    > 
+-->
