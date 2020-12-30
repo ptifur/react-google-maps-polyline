@@ -1,48 +1,17 @@
-# Google Maps Polyline 
+# Google Maps Practice
 
-Main branch. Pink / green
+Main branch
 
 https://react-google-maps-api-docs.netlify.app/#polyline
 
-## Map style 
-
-- Maaike PINK TURKIES II
-
-- The X-Spot location map
-
-https://snazzymaps.com
-
 ## Next
 
-- Marker start
+1. Marker icon FIX
 
-Marker as a div with text? Or proper Popup
-
-- Popup on click with the Name of the track / distance
+2. Info position over the track
 
 ## Fix
 
-1. Map() instead of for()
+map() instead of for()
 
-2. Set `panTo()` / `zoom` / `map margins` for each of the trails
-
-Try glassmorphism UI overlay
-
-Try display initial UI. Pick terrain countour. See how to grab it!
-
-## How to trigger InfoWindow?
-
-## mapTypeId
-
-<<<<<<< HEAD
-panTo()
-
-position map within region
-
-display info about the track
-=======
-https://developers.google.com/maps/documentation/javascript/maptypes
-
-## Icon error
-TypeError: can't access property "maps", window.google is undefined
->>>>>>> TRF
+header nav

@@ -7,7 +7,7 @@ import { features as media } from '../data/media.json'
 
 const containerStyle = {
     width: '100%',
-    height: '75vh'
+    height: '85vh'
 }
 
 const center = {
@@ -54,11 +54,6 @@ const infoBoxStyleDiv = {
         fontSize: 16, 
         fontColor: `#08233B` 
     }
-
-const position = {
-    lat: 28.31, // vertical
-    lng: -16.50 // horizontal
-}
 
 // I N F O W I N D O W
 const infoWindowStyle = {
@@ -112,8 +107,13 @@ const Main = () => {
     }
 
     const positionStartMedia = {
-        lat: media[1].geometry.coordinates[1],
-        lng: media[1].geometry.coordinates[0]
+        lat: media[0].geometry.coordinates[1],
+        lng: media[0].geometry.coordinates[0]
+    }
+
+    const position = {
+        lat: media[media.length / 2].geometry.coordinates[1],
+        lng: media[media.length / 2].geometry.coordinates[0]
     }
 
     // media
@@ -137,6 +137,9 @@ const Main = () => {
         <>
         <div className="header">
             <h1>Running tracks</h1>
+            <div className="nav">
+                <a href="https://github.com/ptifur/react-google-maps-polyline">source code</a>
+            </div>
         </div>
         <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
             <GoogleMap 
@@ -159,7 +162,7 @@ const Main = () => {
                     onClick={() => setDisplayWindow(!displayWindow)}
                 />
                             
-                <InfoBox
+                {/* <InfoBox
                     options={optionsInfoBox}
                     position={center}
                 >
@@ -168,7 +171,7 @@ const Main = () => {
                         Click the trail
                     </div>
                 </div>
-                </InfoBox>
+                </InfoBox> */}
 
                 <Marker
                     position={positionStartUltra}
@@ -176,8 +179,8 @@ const Main = () => {
                     // icon={{
                     //     url: '/bear.svg',
                     //     scaledSize: new window.google.maps.Size(30, 30),
-                    //     origin: new window.google.maps.Point(0, 0),
-                    //     anchor: new window.google.maps.Point(15, 15)
+                    //     // origin: new window.google.maps.Point(0, 0),
+                    //     // anchor: new window.google.maps.Point(15, 15)
                     // }}
                 ></Marker>
 
@@ -203,7 +206,7 @@ const Main = () => {
         <div className="buttons">
             <button className="one" onClick={() => togglePathVisibilityUltra()}>Ultra</button>
             <button className="two" onClick={() => togglePathVisibilityMedia()}>Media</button>
-            <button className="two" onClick={() => setDisplayWindow(!displayWindow)}>Open</button>
+            {/* <button className="three" onClick={() => setDisplayWindow(!displayWindow)}>Open</button> */}
         </div>
         </>
     )

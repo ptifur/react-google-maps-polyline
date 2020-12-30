@@ -19,6 +19,9 @@
     height: 80px;
     display: flex;
     align-items: center;
+    position: fixed;
+    justify-content: space-between;
+    z-index: 2;
 }
 
 h1 {
@@ -32,6 +35,7 @@ button {
     color: #ffffff;
     margin-top: 3vh;
     cursor: pointer;
+    margin-left: 10px;
 }
 
 .one {
@@ -48,4 +52,12 @@ button {
 
 .two:hover {
     background: #c362ff;
+}
+
+.three {
+    background: #453c72;
+}
+
+.three:hover {
+    background: #524494;
 }
