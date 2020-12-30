@@ -199,12 +199,12 @@ const Main = () => {
                     <Marker
                         position={positionStartUltra}
                         visible={visibleUltra}
-                        // icon={{
-                        //     url: '/bear.svg',
-                        //     scaledSize: new window.google.maps.Size(30, 30),
-                        //     // origin: new window.google.maps.Point(0, 0),
-                        //     // anchor: new window.google.maps.Point(15, 15)
-                        // }}
+                        icon={{
+                            url: '/bear.svg',
+                            scaledSize: new window.google.maps.Size(30, 30),
+                            // origin: new window.google.maps.Point(0, 0),
+                            // anchor: new window.google.maps.Point(15, 15)
+                        }}
                     ></Marker>
 
                     <Marker

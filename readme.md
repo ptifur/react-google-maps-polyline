@@ -1,6 +1,14 @@
 # Google Maps Practice
 
-Main branch
+This is my practice project
+
+- Work with Google Maps Javascript API in React
+
+- Fecth data from the remote json file
+
+- Responsive layout
+
+- React Router for navigation
 
 https://react-google-maps-api-docs.netlify.app/#polyline
 
@@ -8,7 +16,7 @@ https://react-google-maps-api-docs.netlify.app/#polyline
 
 1. Marker icon FIX
 
-Check Leigh example
+`TypeError: can't access property "maps", window.google is undefined`
 
 2. Info text, not Window
 
@@ -27,3 +35,11 @@ Try this for nav ☰
 Fetch data from github
 
 Check Loader tutorial
+
+## Router
+
+Set up router
+
+Another page
+
+Get images from official site
