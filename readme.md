@@ -20,6 +20,8 @@ map() instead of for()
 
 - header nav redo!
 
+Try this for nav ☰
+
 ## Then
 
 Fetch data from github
