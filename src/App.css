@@ -47,7 +47,7 @@
 }
 
 h1 {
-    font-size:1.6em;
+    font-size:1.5em;
 }
 
 h2 {
@@ -106,7 +106,14 @@ button {
     background: #c362ff;
 }
 
-@media all and (max-width: 1020px) {
+.info-box {
+    background: yellow;
+    padding: 12px;
+    font-size: 1.3em;
+    opacity: .75;
+}
+
+@media all and (max-width: 1150px) {
     .header {
         width: 90%;
         padding: 10px 20px;
@@ -117,7 +124,7 @@ button {
     }
 }
 
-@media all and (max-width: 680px) {
+@media all and (max-width: 780px) {
 
     .header {
         width: 90%;
@@ -130,7 +137,7 @@ button {
     }
 
     h1 {
-        font-size: 1.25em;
+        font-size: 1.1em;
     }
 
     .container {
