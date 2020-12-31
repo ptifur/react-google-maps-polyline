@@ -4,7 +4,7 @@ This is my practice project
 
 - Work with Google Maps Javascript API in React
 
-- Fecth data from a remote json file
+- Get data from a json file
 
 - Responsive layout
 
@@ -14,15 +14,7 @@ This is my practice project
 
 https://react-google-maps-api-docs.netlify.app/#polyline
 
-## Next
-
-1. Fetch() file
-
 ## What else
-
-- Get images track profile from official site
-
-Link from InfoBox to Trail description
 
 Mobile view menu
 
@@ -32,4 +24,4 @@ InfoBox does not appear after navigating to Map and pressing the button
 
 `InvalidValueError: setMap: not an instance of Map`
 
-Because `onLoad` event does not fire?
+`mapRef.current is undefined`

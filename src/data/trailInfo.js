@@ -1,7 +1,5 @@
-import { features as media } from '../data/media.json'
-import { features as ultra } from '../data/ultra.json'
-
-// const urlMedia = "https://github.com/ptifur/react-google-maps-polyline/blob/main/src/data/media.json"
+import { features as media } from './media.json'
+import { features as ultra } from './ultra.json'
 
 let pointsMedia = []
 let pointsUltra = []
@@ -27,7 +25,8 @@ export { pointsMedia, pointsUltra }
 const trailInfo = [
     {
         name: 'Ultra',
-        distance: 177,
+        distance: 103,
+        time: 24,
         position: {
             lat: 28.25,
             lng: -16.58
@@ -37,6 +36,7 @@ const trailInfo = [
     {
         name: 'Media',
         distance: 20,
+        time: 4,
         position: {
             lat: 28.36,
             lng: -16.56

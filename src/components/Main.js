@@ -1,9 +1,9 @@
 import { useState, useRef, useCallback } from 'react'
 import { GoogleMap, LoadScript } from '@react-google-maps/api'
-import { containerStyle, optionsMap } from './mapStyle'
+import { containerStyle, optionsMap } from '../data/mapStyle'
 import Line from './Line'
 import Info from './Info'
-import trailInfo, { pointsMedia, pointsUltra } from './trailInfo'
+import trailInfo, { pointsMedia, pointsUltra } from '../data/trailInfo'
 
 const Main = () => {
 
@@ -28,6 +28,8 @@ const Main = () => {
 
         mapRef.current.panTo(trailInfo[ trailNumber -1 ].position)
     }
+
+    // console.log(mapRef.current)
 
     return (
         <>
@@ -59,6 +61,7 @@ const Main = () => {
         <div className="buttons">
             <button className="two" onClick={() => displayTrail(2)}>Media</button>
             <button className="one" onClick={() => displayTrail(1)}>Ultra</button>
+            {/* <button>This</button> */}
         </div>
         </>
     )

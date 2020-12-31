@@ -21,13 +21,15 @@
 }
 
 .info-title {
-    margin: 15px 0;
+    margin-top: -10px;
+    margin-bottom: 10px;
     font-size: 1.9em;
     font-weight: 300;
 }
 
 .info-text {
     font-size: .8em;
+    margin-bottom: 2px;
 }
 
 button {
