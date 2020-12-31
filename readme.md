@@ -4,7 +4,7 @@ This is my practice project
 
 - Work with Google Maps Javascript API in React
 
-- Fecth data from the remote json file
+- Fecth data from a remote json file
 
 - Responsive layout
 
@@ -27,6 +27,8 @@ https://react-google-maps-api-docs.netlify.app/#polyline
 - favicon
 
 Link from InfoBox to Trail description
+
+Mobile view menu
 
 ## Here come the errors
 
