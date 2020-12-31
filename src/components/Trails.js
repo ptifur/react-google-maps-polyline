@@ -14,7 +14,7 @@ const Trails = () => {
                     <em>Tenerife Blue Trail</em> is a running event they hold each year on Tenerife island.
                 </p>
                 <p>
-                    The Trails have various distance. Here is the decription for the two of them
+                    The Trails have various distance. Here is the decription for the two of them.
                 </p>
             </div>
             <div className="trails">

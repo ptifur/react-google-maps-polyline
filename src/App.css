@@ -63,15 +63,14 @@ button {
     font-size: 1.3em;
     opacity: .75;
     position: relative;
-    border-radius: 5px;
 }
 
 .info-box-1::before {
     content: '';
     width: 6px;
-    height: 20px;
+    height: 28px;
     position: absolute;
-    top: 16px;
+    top: 0px;
     right: 0px;
     background: #2ed3f9;
 }
@@ -79,9 +78,9 @@ button {
 .info-box-2::before {
     content: '';
     width: 6px;
-    height: 20px;
+    height: 28px;
     position: absolute;
-    top: 16px;
+    top: 0px;
     right: 0px;
     background: #ba4bff;
 }
