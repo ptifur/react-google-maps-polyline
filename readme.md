@@ -18,13 +18,9 @@ https://react-google-maps-api-docs.netlify.app/#polyline
 
 1. Fetch() file
 
-2. In a separate component
-
 ## What else
 
 - Get images track profile from official site
-
-- favicon
 
 Link from InfoBox to Trail description
 

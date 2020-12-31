@@ -15,8 +15,8 @@ const Info = props => {
         className = `info-box-${props.selectedTrail}`
     }
 
-    console.log(props.selectedTrail)
-    console.log(positionInfoBox)
+    // console.log(props.selectedTrail)
+    // console.log(positionInfoBox)
 
     return (
         <>
@@ -26,10 +26,10 @@ const Info = props => {
                 position={positionInfoBox}
             >
                 <div className={className}>
-                    <h2>
+                    <div className="info-title">
                         {props.trailInfo[ props.selectedTrail - 1 ].name}
-                    </h2>
-                    <p>Distance {props.trailInfo[ props.selectedTrail - 1 ].distance} km</p>
+                    </div>
+                    <p className="info-text">Distance {props.trailInfo[ props.selectedTrail - 1 ].distance} km</p>
                 </div>
             </InfoBox>
         : null}

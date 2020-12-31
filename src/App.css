@@ -3,6 +3,7 @@
     box-sizing: border-box;
     color: #333333;
     font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
 }
 
 .wrapper {
@@ -19,11 +20,15 @@
     height: 85%;
 }
 
-/* for InfoBox */
-/* h2 {
-    color: #313345;
-    margin-bottom: 5px;
-} */
+.info-title {
+    margin: 15px 0;
+    font-size: 1.9em;
+    font-weight: 300;
+}
+
+.info-text {
+    font-size: .8em;
+}
 
 button {
     border: none;
@@ -58,6 +63,7 @@ button {
     font-size: 1.3em;
     opacity: .75;
     position: relative;
+    border-radius: 5px;
 }
 
 .info-box-1::before {

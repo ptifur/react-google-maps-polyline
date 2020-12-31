@@ -1,14 +1,9 @@
 import { useState, useRef, useCallback } from 'react'
 import { GoogleMap, LoadScript } from '@react-google-maps/api'
 import { containerStyle, optionsMap } from './mapStyle'
-import trailInfo from './trailInfo'
 import Line from './Line'
 import Info from './Info'
-
-import { features as media } from '../data/media.json'
-import { features as ultra } from '../data/ultra.json'
-
-// const urlMedia = "https://github.com/ptifur/react-google-maps-polyline/blob/main/src/data/media.json"
+import trailInfo, { pointsMedia, pointsUltra } from './trailInfo'
 
 const Main = () => {
 
@@ -18,27 +13,6 @@ const Main = () => {
     const onMapLoad = useCallback((map) => {
         mapRef.current = map
     }, [])
-
-    // get Trail points from file
-    let pointsUltra = []
-
-    ultra.map(point => {
-        let pointLatLng = {
-            lat: point.geometry.coordinates[1],
-            lng: point.geometry.coordinates[0]
-        }
-        return pointsUltra.push(pointLatLng)
-    })
-
-    let pointsMedia = []
-
-    media.map(point => {
-        let pointLatLng = {
-            lat: point.geometry.coordinates[1],
-            lng: point.geometry.coordinates[0]
-        }
-        return pointsMedia.push(pointLatLng)
-    })
 
     // select Trail to output Info
     const [selectedTrail, setSelectedTrail] = useState('')

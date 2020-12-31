@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import '../Header.css'
 
 const Header = () => (
@@ -7,7 +7,7 @@ const Header = () => (
         <ul className="nav">
             <NavLink exact to="/" className="link">Map</NavLink>
             <NavLink to="/trails" className="link">Trails</NavLink>
-            <a href="https://github.com/ptifur/react-google-maps-polyline" target="_blank" rel="noopener noreferrer">source code</a>
+            <a href="https://github.com/ptifur/react-google-maps-practice" target="_blank" rel="noopener noreferrer">source code</a>
         </ul>
         <div className="nav-mobile">
             <a href="http://" target="_blank" rel="noopener noreferrer" className="link">☰</a>
