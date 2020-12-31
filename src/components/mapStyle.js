@@ -153,4 +153,16 @@ const mapStyle = [
     }
 ]
 
-export default mapStyle
+export const containerStyle = {
+    width: '100%',
+    height: '100%'
+}
+
+export const optionsMap = {
+    styles: mapStyle,
+    disableDefaultUI: true,
+    zoomControl: true,
+    mapTypeId: "terrain",
+    maxZoom: 12,
+    minZoom: 7
+}

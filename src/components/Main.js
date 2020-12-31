@@ -1,26 +1,13 @@
 import { useState, useRef, useCallback } from 'react'
-import { GoogleMap, Polyline, LoadScript, InfoBox, Marker } from '@react-google-maps/api'
-import mapStyle from './mapStyle'
+import { GoogleMap, LoadScript, InfoBox } from '@react-google-maps/api'
+import { containerStyle, optionsMap } from './mapStyle'
 import trailInfo from './trailInfo'
+import Line from './Polyline'
 
 import { features as media } from '../data/media.json'
 import { features as ultra } from '../data/ultra.json'
 
 // const urlMedia = "https://github.com/ptifur/react-google-maps-polyline/blob/main/src/data/media.json"
-
-const containerStyle = {
-    width: '100%',
-    height: '100%'
-}
-
-const optionsMap = {
-    styles: mapStyle,
-    disableDefaultUI: true,
-    zoomControl: true,
-    mapTypeId: "terrain",
-    maxZoom: 12,
-    minZoom: 7
-}
 
 const Main = () => {
 
@@ -39,7 +26,7 @@ const Main = () => {
             lat: point.geometry.coordinates[1],
             lng: point.geometry.coordinates[0]
         }
-        pointsUltra.push(pointLatLng)
+        return pointsUltra.push(pointLatLng)
     })
 
     let pointsMedia = []
@@ -49,7 +36,7 @@ const Main = () => {
             lat: point.geometry.coordinates[1],
             lng: point.geometry.coordinates[0]
         }
-        pointsMedia.push(pointLatLng)
+        return pointsMedia.push(pointLatLng)
     })
 
     // select Trail to output Info
@@ -73,21 +60,6 @@ const Main = () => {
         enableEventPropagation: true
     }
 
-    // Polyline
-    const optionsLine1 = {
-        strokeColor: trailInfo[0].colour,
-        strokeWeight: 3,
-        strokeOpacity: 0.8,
-        clickable: false
-    }
-
-    const optionsLine2 = {
-        strokeColor: trailInfo[1].colour,
-        strokeWeight: 3,
-        strokeOpacity: 0.8,
-        clickable: false
-    }
-
     return (
         <>
         <div className="container">
@@ -100,12 +72,12 @@ const Main = () => {
                     onLoad={onMapLoad}
                 >
 
-                    {selectedTrail ? 
-                        <Polyline
-                            path={selectedTrail === 1 ? pointsUltra : pointsMedia }
-                            options={selectedTrail === 1 ? optionsLine1 : optionsLine2}
-                        />
-                    : null}
+                    <Line 
+                        selectedTrail={selectedTrail}
+                        trailInfo={trailInfo}
+                        pointsUltra={pointsUltra}
+                        pointsMedia={pointsMedia}      
+                    />
 
                     {selectedTrail ?
                         <InfoBox
