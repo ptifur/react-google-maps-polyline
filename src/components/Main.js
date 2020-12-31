@@ -1,8 +1,9 @@
 import { useState, useRef, useCallback } from 'react'
-import { GoogleMap, LoadScript, InfoBox } from '@react-google-maps/api'
+import { GoogleMap, LoadScript } from '@react-google-maps/api'
 import { containerStyle, optionsMap } from './mapStyle'
 import trailInfo from './trailInfo'
-import Line from './Polyline'
+import Line from './Line'
+import Info from './Info'
 
 import { features as media } from '../data/media.json'
 import { features as ultra } from '../data/ultra.json'
@@ -54,15 +55,9 @@ const Main = () => {
         mapRef.current.panTo(trailInfo[ trailNumber -1 ].position)
     }
 
-    // Info
-    const optionsInfoBox = { 
-        closeBoxURL: '', 
-        enableEventPropagation: true
-    }
-
     return (
         <>
-        <div className="container">
+        <div className="map-container">
             <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
                 <GoogleMap 
                     mapContainerStyle={containerStyle}
@@ -79,19 +74,10 @@ const Main = () => {
                         pointsMedia={pointsMedia}      
                     />
 
-                    {selectedTrail ?
-                        <InfoBox
-                            options={optionsInfoBox}
-                            position={trailInfo[selectedTrail - 1].position}
-                        >
-                            <div className="info-box">
-                                <h2>
-                                {selectedTrail ? trailInfo[ selectedTrail - 1 ].name : null }
-                                </h2>
-                                <p>Distance {trailInfo[ selectedTrail - 1 ].distance} km</p>
-                            </div>
-                        </InfoBox>
-                    : null}
+                    <Info 
+                        selectedTrail={selectedTrail}
+                        trailInfo={trailInfo}
+                    />
 
                 </GoogleMap>
             </LoadScript>

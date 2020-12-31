@@ -18,24 +18,20 @@ https://react-google-maps-api-docs.netlify.app/#polyline
 
 1. Fetch() file
 
-2. Perhaps `before` element for each trail
+2. In a separate component
 
-3. UI White shadow for nav
+## What else
 
-4. Select active nav
+- Get images track profile from official site
 
-5. Animation for the trail
+- favicon
 
-## React Router
+Link from InfoBox to Trail description
 
-- Set up React Router
+## Here come the errors
 
-- Another page
+InfoBox does not appear after navigating to Map and pressing the button
 
-Get images track profile from official site
+`InvalidValueError: setMap: not an instance of Map`
 
-Image from public or source?
-
-## Split into components
-
-- InfoBox with props
+Because `onLoad` event does not fire?
