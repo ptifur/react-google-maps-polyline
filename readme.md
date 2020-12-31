@@ -10,11 +10,9 @@ This is my practice project
 
 - React Router for navigation
 
-React library
+## React Google Maps API Docs
 
 https://react-google-maps-api-docs.netlify.app/#polyline
-
-Link to TRF website
 
 ## Next
 
@@ -23,6 +21,10 @@ Link to TRF website
 2. Perhaps `before` element for each trail
 
 3. UI White shadow for nav
+
+4. Select active nav
+
+5. Animation for the trail
 
 ## React Router
 
@@ -37,13 +39,3 @@ Image from public or source?
 ## Split into components
 
 - InfoBox with props
-
-- Polyline
-
-That's the point! One component, different props
-
-## What else
-
-Select active nav
-
-Animation for the trail
