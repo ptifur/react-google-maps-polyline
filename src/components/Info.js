@@ -15,8 +15,6 @@ const Info = props => {
         className = `info-box-${props.selectedTrail}`
     }
 
-    // console.log(props.selectedTrail)
-
     return (
         <>
         {props.selectedTrail ? 

@@ -14,9 +14,11 @@ This is my practice project
 
 https://react-google-maps-api-docs.netlify.app/#polyline
 
-## What else
+## Mobile view menu
 
-Mobile view menu
+- No scroll
+
+- Just expand existing navbar. It would make more sense
 
 ## Here come the errors
 
