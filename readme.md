@@ -1,5 +1,7 @@
 # Google Maps Practice
 
+*Jabuary 2021*
+
 This is my practice project
 
 - Work with Google Maps Javascript API in React
@@ -10,20 +12,20 @@ This is my practice project
 
 - React Router for navigation
 
+## More detailed description on DevTo
+
+Link to the [post](https://dev.to/ptifur/google-maps-javascript-api-in-react-388j)
+
 ## React Google Maps API Docs
 
 https://react-google-maps-api-docs.netlify.app/#polyline
 
 ## Mobile view menu
 
-- No scroll
-
-- Just expand existing navbar. It would make more sense
+- Add no scroll perhaps
 
 ## Here come the errors
 
 InfoBox does not appear after navigating to Map and pressing the button
 
-`InvalidValueError: setMap: not an instance of Map`
-
-`mapRef.current is undefined`
+You may find details in the `issues` section
